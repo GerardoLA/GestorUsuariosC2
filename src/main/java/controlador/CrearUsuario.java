@@ -43,6 +43,7 @@ public class CrearUsuario extends HttpServlet {
 		Usuario usuario = new Usuario();
 		UsuarioModelo usuarioMod = new UsuarioModelo();
 		usuario.setNombre(request.getParameter("nombre"));
+		usuario.setPassword(request.getParameter("password"));
 		
 	
 		try {
