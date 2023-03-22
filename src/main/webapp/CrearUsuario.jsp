@@ -10,6 +10,8 @@
 <form method="post" >
 	<input type="text" name="nombre"  placeholder="usuario"/><br>
 	<br>
+	<input type="text" name="password"  placeholder="contraseña"/><br>
+	<br>
 	<input type=submit value="Crear"/>
 </form>
 </body>
