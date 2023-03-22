@@ -12,8 +12,9 @@ public class UsuarioModelo extends Conector {
 	public void crearUsuario(Usuario usuario) {
 		try {
 			
-			pst = getConexion().prepareStatement("INSERT INTO usuarios (nombre) VALUES (?)");
+			pst = getConexion().prepareStatement("INSERT INTO usuarios (nombre,password) VALUES (?,?)");
 			pst.setString(1, usuario.getNombre());
+			pst.setString(2, usuario.);
 			pst.execute();
 			getConexion().close();
 		} catch (SQLException e) {
