@@ -14,7 +14,7 @@ public class UsuarioModelo extends Conector {
 			
 			pst = getConexion().prepareStatement("INSERT INTO usuarios (nombre,password) VALUES (?,?)");
 			pst.setString(1, usuario.getNombre());
-			pst.setString(2, usuario.);
+			pst.setString(2, usuario.getPassword());
 			pst.execute();
 			getConexion().close();
 		} catch (SQLException e) {
@@ -33,6 +33,7 @@ public class UsuarioModelo extends Conector {
 				Usuario usuario = new Usuario();
 				usuario.setId(resultado.getInt("id"));
 				usuario.setNombre(resultado.getString("nombre"));
+				usuario.setPassword(resultado.getString("password"));
 				
 				usuarios.add(usuario);
 
@@ -49,9 +50,10 @@ public class UsuarioModelo extends Conector {
 	public boolean modificarUsuario(Usuario usuario) {
 		
 		try {
-			pst=getConexion().prepareStatement("UPDATE usuarios set nombre=? where id =?");
+			pst=getConexion().prepareStatement("UPDATE usuarios set nombre=?,password=? where id =?");
 			pst.setString(1, usuario.getNombre());
-			pst.setInt(2, usuario.getId());
+			pst.setString(2, usuario.getPassword());
+			pst.setInt(3, usuario.getId());
 			pst.execute();
 			getConexion().close();
 			return true;
@@ -85,8 +87,10 @@ public Usuario getUsuario(int id) {
 		pst.setInt(1, id);
 		ResultSet resultado=pst.executeQuery();
 		resultado.next();
-		usuario.setNombre(resultado.getString("nombre"));
+		
 		usuario.setId(resultado.getInt("id"));
+		usuario.setNombre(resultado.getString("nombre"));
+		usuario.setPassword(resultado.getString("password"));
 		
 		
 		
