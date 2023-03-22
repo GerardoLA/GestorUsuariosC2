@@ -14,7 +14,7 @@
 <input type = "hidden" name= "id" value="<%= usuario.getId() %>" ><%= usuario.getId() %>
 	<input type="text" name="nombre"  placeholder="usuario" value="<%=usuario.getNombre()%>"/><br>
 	<br>
-	<input type="password" name="password" placeholder="password" value="<%=usuario.getPassword()%>"/>
+	<input type="password" name="password" placeholder="password" value="<%=usuario.getPassword()%>"/><br>
 	<br>
 	<input type=submit value="Modificar"/>
 
