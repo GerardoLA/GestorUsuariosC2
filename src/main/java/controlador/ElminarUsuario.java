@@ -35,6 +35,8 @@ public class ElminarUsuario extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		usuarioMod.eliminarUsuario(id);
 		
+		/* ejemplo: http://localhost:8080/GestorUsuariosC2/ElminarUsuario?id=5 */
+		
 		response.sendRedirect("ventanaPrincipal");
 	}
 	

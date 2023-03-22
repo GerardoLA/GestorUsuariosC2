@@ -16,13 +16,13 @@ import modelo.UsuarioModelo;
  * Servlet implementation class ModificarFormulario
  */
 @WebServlet("/ModificarFormulario")
-public class ModificarFormulario extends HttpServlet {
+public class ModificarUsuarioVent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModificarFormulario() {
+    public ModificarUsuarioVent() {
         super();
         // TODO Auto-generated constructor stub
     }

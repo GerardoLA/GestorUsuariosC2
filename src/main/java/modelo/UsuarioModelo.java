@@ -84,9 +84,9 @@ public Usuario getUsuario(int id) {
 		pst.setInt(1, id);
 		ResultSet resultado=pst.executeQuery();
 		resultado.next();
-		
-		usuario.setId(resultado.getInt("id"));
 		usuario.setNombre(resultado.getString("nombre"));
+		usuario.setId(resultado.getInt("id"));
+		
 		
 		
 	} catch (SQLException e) {

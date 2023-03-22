@@ -32,15 +32,15 @@ public class VerUsuario extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
 		UsuarioModelo usuarioMod = new UsuarioModelo();
 		Usuario usuario = new Usuario();
 		int id=Integer.parseInt(request.getParameter("id"));
-		usuarioMod.getConexion();
+		usuario=usuarioMod.getUsuario(id);
 
 
-		 request.setAttribute("usuario", usuario);
+		 request.setAttribute("usuario",usuario);
 		 request.getRequestDispatcher("VerUsuario.jsp").forward(request, response);
 		
 		

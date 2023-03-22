@@ -10,17 +10,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-ArrayList<Usuario>usuarios=(ArrayList<Usuario>)request.getAttribute("usuarios");
-
-%>
+Esto es ver usuarioJSP
+<% Usuario usuario=(Usuario)request.getAttribute("usuario");%>
 <table class="table">
-<thead>
-<tr></tr>
+  
+		<tr>
+		      <th scope="row"><%out.println(usuario.getId()); %></th>
+		      <th scope="row"><%out.println(usuario.getNombre()); %></th>
+		</tr>
+	
 </table>
-<% for (Usuario usuario : usuarios) {
-	out.println(usuario);
-}%>
+
+
+
 
 
 </body>

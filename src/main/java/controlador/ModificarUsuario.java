@@ -37,7 +37,7 @@ public class ModificarUsuario extends HttpServlet {
 		
 		UsuarioModelo usuarioMod = new UsuarioModelo();
 		usuarioMod.modificarUsuario(usuario);
-		System.out.println("dwed");
+		System.out.println("Modificado");
 		
 		try {
 			
