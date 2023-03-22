@@ -34,6 +34,7 @@ public class ModificarUsuario extends HttpServlet {
 		Usuario usuario = new Usuario();
 		usuario.setId(Integer.parseInt(request.getParameter("id")));
 		usuario.setNombre(request.getParameter("nombre"));
+		usuario.setPassword(request.getParameter("password"));
 		
 		UsuarioModelo usuarioMod = new UsuarioModelo();
 		usuarioMod.modificarUsuario(usuario);
