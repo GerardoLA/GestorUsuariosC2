@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.sql.Date;
 
 public class UsuarioModelo extends Conector {
 	PreparedStatement pst ;
@@ -12,9 +13,12 @@ public class UsuarioModelo extends Conector {
 	public void crearUsuario(Usuario usuario) {
 		try {
 			
-			pst = getConexion().prepareStatement("INSERT INTO usuarios (nombre,password) VALUES (?,?)");
+			pst = getConexion().prepareStatement("INSERT INTO usuarios (nombre,password,fecha_login) VALUES (?,?,?)");
 			pst.setString(1, usuario.getNombre());
-			pst.setString(2, usuario.getPassword());
+			pst.setString(2, usuario.getContrasena());
+			pst.setDate(3, new Date(usuario.getFecha_login().getTime()));
+			
+			
 			pst.execute();
 			getConexion().close();
 		} catch (SQLException e) {
@@ -33,7 +37,8 @@ public class UsuarioModelo extends Conector {
 				Usuario usuario = new Usuario();
 				usuario.setId(resultado.getInt("id"));
 				usuario.setNombre(resultado.getString("nombre"));
-				usuario.setPassword(resultado.getString("password"));
+				usuario.setContrasena(resultado.getString("contrasena"));
+				
 				
 				usuarios.add(usuario);
 
@@ -50,10 +55,11 @@ public class UsuarioModelo extends Conector {
 	public boolean modificarUsuario(Usuario usuario) {
 		
 		try {
-			pst=getConexion().prepareStatement("UPDATE usuarios set nombre=?,password=? where id =?");
+			pst=getConexion().prepareStatement("UPDATE usuarios set nombre=?,password=?,fecha_login=? where id =?");
 			pst.setString(1, usuario.getNombre());
-			pst.setString(2, usuario.getPassword());
-			pst.setInt(3, usuario.getId());
+			pst.setString(2, usuario.getContrasena());
+			pst.setDate(3, new Date(usuario.getFecha_login().getTime()));
+			pst.setInt(4, usuario.getId());
 			pst.execute();
 			getConexion().close();
 			return true;
@@ -90,7 +96,8 @@ public Usuario getUsuario(int id) {
 		
 		usuario.setId(resultado.getInt("id"));
 		usuario.setNombre(resultado.getString("nombre"));
-		usuario.setPassword(resultado.getString("password"));
+		usuario.setContrasena(resultado.getString("contrasena"));
+		usuario.setFecha_login(resultado.getDate("fecha_login"));
 		
 		
 		

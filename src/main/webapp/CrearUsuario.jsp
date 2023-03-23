@@ -7,10 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method="post" >
+<form method="post" action="CrearUsuario">
 	<input type="text" name="nombre"  placeholder="usuario"/><br>
 	<br>
-	<input type="text" name="password"  placeholder="contraseña"/><br>
+	<input type="text" name="contrasena"  placeholder="contraseña"/><br>
+	<br>
+	<input type="date" name="fecha_login"  placeholder="fecha_login"/><br>
 	<br>
 	<input type=submit value="Crear"/>
 </form>

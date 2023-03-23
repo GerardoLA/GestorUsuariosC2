@@ -28,7 +28,7 @@
     <tr>
       <th scope="row"><%out.println(usuario.getId()); %></th>
       <th scope="row"><%out.println(usuario.getNombre()); %></th>
-      <th scope="row"><%out.println(usuario.getPassword()); %></th>
+      <th scope="row"><%=usuario.getContrasena() %></th>
       
       
     </tr>

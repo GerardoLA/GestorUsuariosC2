@@ -5,7 +5,7 @@ import java.util.Date;
 public class Usuario {
 	private int id;
 	private String nombre;
-	private String password;
+	private String contrasena;
 	private Date fecha_login;
 	
 	
@@ -15,11 +15,11 @@ public class Usuario {
 	public void setFecha_login(Date fecha_login) {
 		this.fecha_login = fecha_login;
 	}
-	public String getPassword() {
-		return password;
+	public String getContrasena() {
+		return contrasena;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 	public int getId() {
 		return id;
@@ -39,15 +39,8 @@ public class Usuario {
 	}
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", password=" + password + ", fecha_login=" + fecha_login
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", password=" + contrasena + ", fecha_login=" + fecha_login
 				+ "]";
-	}
-	public Usuario(int id, String nombre, String password, Date fecha_login) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.password = password;
-		this.fecha_login = fecha_login;
 	}
 	
 

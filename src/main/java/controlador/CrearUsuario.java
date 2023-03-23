@@ -38,12 +38,12 @@ public class CrearUsuario extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
 		
 		Usuario usuario = new Usuario();
 		UsuarioModelo usuarioMod = new UsuarioModelo();
 		usuario.setNombre(request.getParameter("nombre"));
-		usuario.setPassword(request.getParameter("password"));
+		usuario.setContrasena(request.getParameter("contrasena"));
+		
 		
 	
 		try {
