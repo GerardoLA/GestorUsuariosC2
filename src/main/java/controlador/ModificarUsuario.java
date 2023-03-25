@@ -48,7 +48,7 @@ public class ModificarUsuario extends HttpServlet {
 			e.printStackTrace();
 		}
 	
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.sendRedirect("VerUsuarios");
 	}
 
 	/**
@@ -56,7 +56,10 @@ public class ModificarUsuario extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		Usuario usuario = new Usuario();
+		usuario.setId(Integer.parseInt(request.getParameter("id")));
+		usuario.setNombre(request.getParameter("nombre"));
+		usuario.setPassword(request.getParameter("password"));
 	}
 
 }

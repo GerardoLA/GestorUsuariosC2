@@ -11,6 +11,7 @@
 <% Usuario usuario = (Usuario) request.getAttribute("usuario");
 %>
 <form Action ="ModificarUsuario" >
+
 <input type = "hidden" name= "id" value="<%= usuario.getId() %>" ><%= usuario.getId() %>
 	<input type="text" name="nombre"  placeholder="usuario" value="<%=usuario.getNombre()%>"/><br>
 	<br>
@@ -19,6 +20,8 @@
 	<input type=submit value="Modificar"/>
 
 </form>
+
+	<a href="VerUsuarios" class="btn">Volver</a>
 
 </body>
 </html>

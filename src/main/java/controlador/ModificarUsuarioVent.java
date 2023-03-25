@@ -49,7 +49,7 @@ public class ModificarUsuarioVent extends HttpServlet {
 		request.setAttribute("usuario", usuario);
 		
 		
-		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.getRequestDispatcher("ModificarUsuario.jsp").forward(request, response);
 		
 	}
