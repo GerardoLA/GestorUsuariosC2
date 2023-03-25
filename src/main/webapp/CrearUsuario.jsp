@@ -14,5 +14,6 @@
 	<br>
 	<input type=submit value="Crear"/>
 </form>
+<a href="VerUsuarios" class="btn btn-primary">Volver</a>
 </body>
 </html>

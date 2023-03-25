@@ -27,7 +27,7 @@ Esto es ver usuarioJSP
 		</tr>
 	
 </table>
-
+<a href="VerUsuarios" class="btn btn-primary">Volver</a>
 
 
 

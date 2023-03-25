@@ -21,7 +21,7 @@
       <th scope="col">PASSWORD</th>
       <th scope="col"></th>
       <th scope="col"></th>
-      <td><a href="Registrar" class="btn btn-dark">Registrar</a></td>
+      <td><a href="CrearUsuario" class="btn btn-dark">Registrar</a></td>
     </tr>
   </thead>
    <tbody>
@@ -40,5 +40,6 @@
    <%} %>
   </tbody>
 </table>
+
 </body>
 </html>

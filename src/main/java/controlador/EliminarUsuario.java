@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.UsuarioModelo;
 
 /**
- * Servlet implementation class ElminarUsuario
+ * Servlet implementation class EliminarUsuario
  */
 @WebServlet("/EliminarUsuario")
 public class EliminarUsuario extends HttpServlet {
@@ -29,17 +29,14 @@ public class EliminarUsuario extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		int id=0;
 		UsuarioModelo usuarioMod = new UsuarioModelo();
-		id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("id"));
 		usuarioMod.eliminarUsuario(id);
-		
-		/* ejemplo: http://localhost:8080/GestorUsuariosC2/ElminarUsuario?id=5 */
-		
-		response.sendRedirect("ventanaPrincipal");
-	}
 	
+		response.sendRedirect("VerUsuarios");
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
