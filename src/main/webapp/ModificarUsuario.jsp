@@ -21,7 +21,7 @@
 
 </form>
 
-	<a href="VerUsuarios" class="btn">Volver</a>
+	<a href="Principal" class="btn">Volver</a>
 
 </body>
 </html>

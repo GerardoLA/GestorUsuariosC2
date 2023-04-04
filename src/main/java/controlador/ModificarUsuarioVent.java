@@ -15,7 +15,7 @@ import modelo.UsuarioModelo;
 /**
  * Servlet implementation class ModificarFormulario
  */
-@WebServlet("/ModificarFormulario")
+@WebServlet("/ModificarUsuarioVent")
 public class ModificarUsuarioVent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

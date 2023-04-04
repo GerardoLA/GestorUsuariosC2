@@ -32,7 +32,7 @@
       <th scope="row"><%out.println(usuario.getNombre()); %></th>
       <th scope="row"><%out.println(usuario.getPassword()); %></th>
        <td><a href="VerUsuario?id=<% out.println(usuario.getId()); %>" class="btn btn-primary ">Ver</a></td>
-      <td><a href="ModificarFormulario?id=<% out.println(usuario.getId()); %>" class="btn btn-secondary ">Modificar </a> </td>
+      <td><a href="ModificarUsuarioVent?id=<% out.println(usuario.getId()); %>" class="btn btn-secondary ">Modificar </a> </td>
       <td><a href="EliminarUsuario?id=<% out.println(usuario.getId()); %>" class="btn btn-primary" >Eliminar! </a> </td>
       
       
