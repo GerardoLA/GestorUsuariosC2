@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@page import="modelo.Usuario" %>
+   
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,15 +10,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% Usuario usuario = (Usuario) request.getAttribute("usuario");
-%>
+
+
 <form Action ="ModificarUsuario" >
-<input type = "hidden" name= "id" value="<%= usuario.getId() %>" ><%= usuario.getId() %>
-	<input type="text" name="nombre"  placeholder="usuario" value="<%=usuario.getNombre()%>"/><br>
+<input type = "hidden" name= "id" value="${usuario.id}" >${usuario.id}
+	<input type="text" name="nombre"  placeholder="usuario" value="${usuario.nombre}"/><br>
 	<br>
-	<input type="password" name="password" placeholder="password" value="<%=usuario.getPassword()%>"/><br>
+	<input type="password" name="password" placeholder="password" value="${usuario.password}"/><br>
 	<br>
-	<input type="date" name="fecha_login" placeholder="fecha.login" value="<%=usuario.getFecha_login()%>"/><br>
+	<input type="date" name="fecha_login" placeholder="fecha.login" value="${usuario.fecha_login}"/><br>
 	<br>
 	<input type=submit value="Modificar"/>
 

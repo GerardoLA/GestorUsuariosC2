@@ -40,6 +40,7 @@ public class UsuarioModelo extends Conector {
 				usuario.setFecha_login(resultado.getDate("fecha_login"));
 				
 				
+				
 				usuarios.add(usuario);
 
 			}
@@ -59,7 +60,9 @@ public class UsuarioModelo extends Conector {
 			pst.setString(1, usuario.getNombre());
 			pst.setString(2, usuario.getPassword());
 			pst.setDate(3,new Date(usuario.getFecha_login().getTime()));
+			
 			pst.setInt(4, usuario.getId());
+			
 			pst.execute();
 			getConexion().close();
 			return true;
@@ -98,6 +101,7 @@ public Usuario getUsuario(int id) {
 		usuario.setNombre(resultado.getString("nombre"));
 		usuario.setPassword(resultado.getString("password"));
 		usuario.setFecha_login(resultado.getDate("fecha_login"));
+		
 		
 		
 		

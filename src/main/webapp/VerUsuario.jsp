@@ -20,12 +20,14 @@ Esto es ver usuarioJSP
 			<th scope="row">NOMBRE</th>
 			<th scope="row">PASSWORD</th>
 			<th scope="row">FECHA_LOGIN</th>
+			<th scope="row">ROL</th>
   
 		<tr>
 		      <th scope="row"><%out.println(usuario.getId()); %></th>
 		      <th scope="row"><%out.println(usuario.getNombre()); %></th>
 		      <th scope="row"><%out.println(usuario.getPassword()); %></th>
 		      <th scope="row"><%out.println(usuario.getFecha_login()); %></th>
+		     
 		     
 		</tr>
 	

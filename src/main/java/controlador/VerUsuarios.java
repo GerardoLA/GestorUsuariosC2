@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.Usuario;
 import modelo.UsuarioModelo;
-
+import modelo.RolModelo;
+import modelo.Rol;
 /**
  * Servlet implementation class VerUsuarios
  */
@@ -42,9 +43,11 @@ public class VerUsuarios extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-				
+		RolModelo rolMod = new RolModelo(); 
+		ArrayList<Rol>roles = new ArrayList<>();
 		
 		//vistarako prestatu
+		request.setAttribute("roles", roles);
 		request.setAttribute("usuarios", usuarios);
 		
 		

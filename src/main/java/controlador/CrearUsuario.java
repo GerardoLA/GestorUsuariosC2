@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.Usuario;
 import modelo.UsuarioModelo;
+import modelo.Rol;
+import modelo.RolModelo;
+import java.util.ArrayList;
 
 /**
  * Servlet implementation class CrearUsuario
@@ -34,7 +37,9 @@ public class CrearUsuario extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 		request.getRequestDispatcher("CrearUsuario.jsp").forward(request, response);
+	
 	}
 
 	/**
@@ -51,23 +56,42 @@ public class CrearUsuario extends HttpServlet {
 		usuario.setPassword(request.getParameter("password"));
 		Date fecha_login = null;
 		
-	
+		
 		try {
+			fecha_login=new SimpleDateFormat("yyyy-mm-dd").parse(request.getParameter("fecha_login"));
 			
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			usuario.setFecha_login(fecha_login);
+			usuarioMod.crearUsuario(usuario);
 			try {
-				fecha_login = new SimpleDateFormat("dd-MM-yyyy").parse(request.getParameter("fecha_login"));
-			} catch (ParseException e) {
+				usuarioMod.getConexion().close();
+			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			usuario.setFecha_login(fecha_login);
-			usuarioMod.crearUsuario(usuario);
-			usuarioMod.getConexion().close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+			response.sendRedirect("Principal");
 		
-		request.getRequestDispatcher("CrearUsuario.jsp").forward(request, response);
+			
+//	
+//		try {
+//			
+//			try {
+//				fecha_login = new SimpleDateFormat("dd-MM-yyyy").parse(request.getParameter("fecha_login"));
+//			} catch (ParseException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			usuario.setFecha_login(fecha_login);
+//			usuarioMod.crearUsuario(usuario);
+//			usuarioMod.getConexion().close();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+		
+		
 		
 		
 	}
