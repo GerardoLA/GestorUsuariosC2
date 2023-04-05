@@ -3,7 +3,7 @@
     pageEncoding="ISO-8859-1"%>
  
  <%@ page import="java.util.ArrayList" %>   
- <%@ page import="modelo.Usuario" %>
+ <%@ page import="modelo.bean.Usuario" %>
 <!DOCTYPE html>
 <html>
 <head>

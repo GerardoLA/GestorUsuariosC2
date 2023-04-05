@@ -34,9 +34,7 @@ public class CrearUsuario extends HttpServlet {
 		request.getRequestDispatcher("CrearUsuario.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		
