@@ -1,16 +1,25 @@
 package modelo;
 
+import java.util.Date;
+
 public class Usuario {
 	private int id;
 	private String nombre;
-	private String password;
+	private String contrasena;
+	private Date fecha_login;
 	
 	
-	public String getPassword() {
-		return password;
+	public Date getFecha_login() {
+		return fecha_login;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setFecha_login(Date fecha_login) {
+		this.fecha_login = fecha_login;
+	}
+	public String getContrasena() {
+		return contrasena;
+	}
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 	public int getId() {
 		return id;
@@ -28,15 +37,10 @@ public class Usuario {
 	public Usuario() {
 		super();
 	}
-	public Usuario(int id, String nombre, String password) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.password = password;
-	}
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", password=" + password + "]";
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", password=" + contrasena + ", fecha_login=" + fecha_login
+				+ "]";
 	}
 	
 
