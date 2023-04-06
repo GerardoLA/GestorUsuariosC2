@@ -35,7 +35,7 @@
     	<th scope="row">${usuario.fecha_login}</th>
     	
     	
-    	<td><a href="VerUsuario?id=${usuario.id}"; class="btn btn-primary ">Ver</a></td>
+    	<td><a href="VerUsuario?id=${usuario.id}" class="btn btn-primary ">Ver</a></td>
     	<td><a href="ModificarUsuarioVent?id=${usuario.id}" class="btn btn-secondary ">Modificar</a></td>
     	<td><a href="EliminarUsuario?id=${usuario.id}" class="btn btn-primary ">Eliminar</a></td>  
     </tr>
