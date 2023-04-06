@@ -2,7 +2,6 @@ package controlador;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.Usuario;
+import java.util.ArrayList;
 import modelo.UsuarioModelo;
-
+import modelo.Usuario;
 /**
  * Servlet implementation class Principal
  */
@@ -32,23 +31,27 @@ public class Principal extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//datuak lortu
+		//Datos
 		UsuarioModelo usuarioMod = new UsuarioModelo();
-		ArrayList<Usuario> usuarios=new  ArrayList<Usuario>();
+		ArrayList<Usuario>usuarios = new ArrayList<>();
+		
 		try {
-			usuarios = usuarioMod.getUsuarios();
+			usuarios=usuarioMod.getUsuarios();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-				
 		
-		//vistarako prestatu
+		//preparar para vistas
 		request.setAttribute("usuarios", usuarios);
 		
-		
+		/**
+		 * Abrir la vista y enviar los usuarios
+		 */
 		request.getRequestDispatcher("ventanaPrincipal.jsp").forward(request, response);
+		
 	}
 
 	/**
