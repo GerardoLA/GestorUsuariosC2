@@ -15,14 +15,13 @@ public class UsuarioModelo extends Conector {
 			
 			pst = getConexion().prepareStatement("INSERT INTO usuarios (nombre,password,fecha_login) VALUES (?,?,?)");
 			pst.setString(1, usuario.getNombre());
-			pst.setString(2, usuario.getContrasena());
+			pst.setString(2, usuario.getPassword());
 			pst.setDate(3, new Date(usuario.getFecha_login().getTime()));
-			
 			
 			pst.execute();
 			getConexion().close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 	}
@@ -37,7 +36,9 @@ public class UsuarioModelo extends Conector {
 				Usuario usuario = new Usuario();
 				usuario.setId(resultado.getInt("id"));
 				usuario.setNombre(resultado.getString("nombre"));
-				usuario.setContrasena(resultado.getString("contrasena"));
+				usuario.setPassword(resultado.getString("password"));
+				usuario.setFecha_login(resultado.getDate("fecha_login"));
+				
 				
 				
 				usuarios.add(usuario);
@@ -57,9 +58,11 @@ public class UsuarioModelo extends Conector {
 		try {
 			pst=getConexion().prepareStatement("UPDATE usuarios set nombre=?,password=?,fecha_login=? where id =?");
 			pst.setString(1, usuario.getNombre());
-			pst.setString(2, usuario.getContrasena());
-			pst.setDate(3, new Date(usuario.getFecha_login().getTime()));
+			pst.setString(2, usuario.getPassword());
+			pst.setDate(3,new Date(usuario.getFecha_login().getTime()));
+			
 			pst.setInt(4, usuario.getId());
+			
 			pst.execute();
 			getConexion().close();
 			return true;
@@ -96,8 +99,10 @@ public Usuario getUsuario(int id) {
 		
 		usuario.setId(resultado.getInt("id"));
 		usuario.setNombre(resultado.getString("nombre"));
-		usuario.setContrasena(resultado.getString("contrasena"));
+		usuario.setPassword(resultado.getString("password"));
 		usuario.setFecha_login(resultado.getDate("fecha_login"));
+		
+		
 		
 		
 		
