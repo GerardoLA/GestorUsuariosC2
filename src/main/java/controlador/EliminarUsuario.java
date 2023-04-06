@@ -34,9 +34,12 @@ public class EliminarUsuario extends HttpServlet {
 		UsuarioModelo usuarioMod = new UsuarioModelo();
 		int id = Integer.parseInt(request.getParameter("id"));
 		usuarioMod.eliminarUsuario(id);
-	
+		
+		/* ejemplo: http://localhost:8080/GestorUsuariosC2/ElminarUsuario?id=5 */
+		request.getRequestDispatcher("Principal");
 		response.sendRedirect("VerUsuarios");
 	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
