@@ -20,6 +20,7 @@
       <th scope="col">NOMBRE</th>
       <th scope="col">PASSWORD</th>
       <th scope="col">FECHA LOGIN</th>
+      <th scope="col">ROL</th>
      
       <th scope="col"></th>
       
@@ -33,6 +34,7 @@
       	<th scope="row">${usuario.nombre}</th>
     	<th scope="row">${usuario.password}</th>
     	<th scope="row">${usuario.fecha_login}</th>
+    	<th scope="row">${usuario.rol.nombre}</th>
     	
     	
     	<td><a href="VerUsuario?id=${usuario.id}"; class="btn btn-primary ">Ver</a></td>
@@ -44,6 +46,7 @@
   </tbody>
       <tr>
     	<td><a href="CrearUsuario" class="btn btn-dark">Registrar Usuario nuevo</a></td>
+    	<td><a href="BuscarUsuario" class="btn btn-dark">Buscar usuario</a></td>
     </tr>
 </table>
 </form>

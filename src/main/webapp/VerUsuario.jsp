@@ -27,6 +27,7 @@ Esto es ver usuarioJSP
 		      <th scope="row"><%out.println(usuario.getNombre()); %></th>
 		      <th scope="row"><%out.println(usuario.getPassword()); %></th>
 		      <th scope="row"><%out.println(usuario.getFecha_login()); %></th>
+		       <th scope="row"><%out.println(usuario.getRol().getNombre()); %></th>
 		     
 		     
 		</tr>

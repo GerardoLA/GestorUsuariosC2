@@ -47,7 +47,10 @@ public class ModificarUsuario extends HttpServlet {
 		}
 		
 		usuario.setFecha_login(fecha_login);
+		
 		UsuarioModelo usuarioMod = new UsuarioModelo();
+		
+		
 		usuarioMod.modificarUsuario(usuario);
 		System.out.println("Modificado");
 		

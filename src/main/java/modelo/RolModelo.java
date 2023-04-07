@@ -25,19 +25,41 @@ public class RolModelo extends Conector {
 		Rol rol = new Rol();
 		try {
 			pst = getConexion().prepareStatement("SELECT* FROM roles where id=?");
+			pst.setInt(1, id);
+			
 			ResultSet resultado=pst.executeQuery();
 			resultado.next();
 			rol.setId(resultado.getInt("id"));
 			rol.setNombre(resultado.getString("nombre"));
-			
+			getConexion().close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		
+	
 	return rol;	
 	}
+	
+	public Rol getRol(String nombre) {
+		Rol rol = new Rol();
+		try {
+			pst = getConexion().prepareStatement("SELECT* FROM roles where nombre=?");
+			pst.setString(1, nombre);
+			ResultSet resultado = pst.executeQuery();
+			resultado.next();
+			rol.setId(resultado.getInt("id"));
+			rol.setNombre(resultado.getString("nombre"));
+			
+			getConexion().close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+	return rol;	
+	}
+	
 	
 	public ArrayList<Rol> getRoles() throws SQLException {
 		ArrayList<Rol>roles = new ArrayList<>();

@@ -10,20 +10,23 @@ public class UsuarioModelo extends Conector {
 	PreparedStatement pst ;
 	
 	
-	public void crearUsuario(Usuario usuario) {
+	public boolean crearUsuario(Usuario usuario) {
 		try {
 			
-			pst = getConexion().prepareStatement("INSERT INTO usuarios (nombre,password,fecha_login) VALUES (?,?,?)");
+			pst = getConexion().prepareStatement("INSERT INTO usuarios (nombre,password,fecha_login,id_rol) VALUES (?,?,?,?)");
 			pst.setString(1, usuario.getNombre());
 			pst.setString(2, usuario.getPassword());
 			pst.setDate(3, new Date(usuario.getFecha_login().getTime()));
-			
+			pst.setInt(4, usuario.getRol().getId());
 			pst.execute();
 			getConexion().close();
+			return false;
 		} catch (SQLException e) {
 		
 			e.printStackTrace();
+			return true;
 		}
+		
 	}
 	public ArrayList<Usuario>getUsuarios() throws SQLException{
 		ArrayList<Usuario>usuarios=new ArrayList<>();
@@ -38,6 +41,9 @@ public class UsuarioModelo extends Conector {
 				usuario.setNombre(resultado.getString("nombre"));
 				usuario.setPassword(resultado.getString("password"));
 				usuario.setFecha_login(resultado.getDate("fecha_login"));
+				
+				RolModelo rolMod = new RolModelo();
+				usuario.setRol(rolMod.getRol(resultado.getInt("id_rol")));
 				
 				
 				
@@ -56,12 +62,13 @@ public class UsuarioModelo extends Conector {
 	public boolean modificarUsuario(Usuario usuario) {
 		
 		try {
-			pst=getConexion().prepareStatement("UPDATE usuarios set nombre=?,password=?,fecha_login=? where id =?");
+			pst=getConexion().prepareStatement("UPDATE usuarios set nombre=?,password=?,fecha_login=?, rol=? where id =?");
 			pst.setString(1, usuario.getNombre());
 			pst.setString(2, usuario.getPassword());
 			pst.setDate(3,new Date(usuario.getFecha_login().getTime()));
+			pst.setInt(4, usuario.getRol().getId());
 			
-			pst.setInt(4, usuario.getId());
+			pst.setInt(5, usuario.getId());
 			
 			pst.execute();
 			getConexion().close();
@@ -89,6 +96,8 @@ public boolean eliminarUsuario(int id) {
 	}
 	return false;
 }
+
+
 public Usuario getUsuario(int id) {
 	Usuario usuario = new Usuario();
 	try {
@@ -102,9 +111,10 @@ public Usuario getUsuario(int id) {
 		usuario.setPassword(resultado.getString("password"));
 		usuario.setFecha_login(resultado.getDate("fecha_login"));
 		
+		RolModelo rolMod = new RolModelo();
 		
-		
-		
+		usuario.setRol(rolMod.getRol(resultado.getInt("id_rol")));
+			
 		
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block

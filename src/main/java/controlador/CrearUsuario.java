@@ -38,6 +38,18 @@ public class CrearUsuario extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+		RolModelo rolMod = new RolModelo();
+		ArrayList<Rol>roles= new ArrayList<>();
+		
+		try {
+			roles = rolMod.getRoles();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		request.setAttribute("roles", roles);
 		request.getRequestDispatcher("CrearUsuario.jsp").forward(request, response);
 	
 	}
@@ -50,10 +62,12 @@ public class CrearUsuario extends HttpServlet {
 		
 		Usuario usuario = new Usuario();
 		UsuarioModelo usuarioMod = new UsuarioModelo();
-		
+		RolModelo rolMod = new RolModelo();
+		String rol = request.getParameter("rol");
 		
 		usuario.setNombre(request.getParameter("nombre"));
 		usuario.setPassword(request.getParameter("password"));
+	
 		Date fecha_login = null;
 		
 		
@@ -65,6 +79,9 @@ public class CrearUsuario extends HttpServlet {
 			e.printStackTrace();
 		}
 			usuario.setFecha_login(fecha_login);
+			
+			usuario.setRol(rolMod.getRol(rol));
+			
 			usuarioMod.crearUsuario(usuario);
 			try {
 				usuarioMod.getConexion().close();
@@ -72,24 +89,11 @@ public class CrearUsuario extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			
 			response.sendRedirect("Principal");
 		
-			
-//	
-//		try {
-//			
-//			try {
-//				fecha_login = new SimpleDateFormat("dd-MM-yyyy").parse(request.getParameter("fecha_login"));
-//			} catch (ParseException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//			usuario.setFecha_login(fecha_login);
-//			usuarioMod.crearUsuario(usuario);
-//			usuarioMod.getConexion().close();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
+
 		
 		
 		
